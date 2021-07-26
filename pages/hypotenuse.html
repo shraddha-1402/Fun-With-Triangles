@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../styles.css">
+  <title>Hypotenuse Of Triangle</title>
+</head>
+
+<body>
+  <div><a href="../index.html">Back To Home</a></div>
+  <h1>Enter Length of sides of right angle triangle</h1>
+  <div class="triangle-adjacent-base"></div>
+  <div class="triangle-hypotenuse"></div>
+
+  <form id="hypotenuse-form">
+    <label for="adjacent-side">a:</label>
+    <input type="number" min="1" required name="adjacent-side" id="adjacent-side">
+    <label for="base">b:</label>
+    <input type="number" min="1" required name="base" id="base">
+    <button type="submit">Calculate</button>
+  </form>
+
+  <p id="output">Hypotenuse will be shown here</p>
+
+  <script src="../main.js"></script>
+</body>
+
+</html>
