@@ -1,0 +1,22 @@
+body{
+  margin: 0;
+  text-align: center;
+}
+
+.card{
+  margin: 1rem auto;
+  padding: 1rem;
+  border: 2px solid black;
+  font-weight: bold;
+  max-width: 48rem;
+  cursor: pointer;
+}
+
+.card:hover{
+  border-color: blue;
+}
+
+.link{
+  text-decoration: none;
+  color: inherit;
+}
