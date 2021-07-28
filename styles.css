@@ -5,7 +5,6 @@ body{
 
 .card{
   margin: 1rem auto;
-  padding: 1rem;
   border: 2px solid black;
   font-weight: bold;
   max-width: 48rem;
@@ -19,4 +18,10 @@ body{
 .link{
   text-decoration: none;
   color: inherit;
+}
+
+h3{
+  background-color: bisque;
+  margin: 0;
+  padding: 1rem;
 }
