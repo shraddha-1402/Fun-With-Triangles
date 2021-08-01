@@ -1,6 +1,18 @@
 body{
   margin: 0;
   text-align: center;
+  background-image: url("./5295526.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  padding: 1rem;
+
+  color: #948C7C;
+}
+
+.header-heading{
+  color: #CAAD7D;
+  font-size: 40px;
 }
 
 .card{
@@ -9,10 +21,19 @@ body{
   font-weight: bold;
   max-width: 48rem;
   cursor: pointer;
+  background-color: #292929;
+  font-size: 20px;
+  transition: 0.5s;
 }
 
 .card:hover{
-  border-color: blue;
+  border-color: #CAAD7D;
+  color: #CAAD7D;
+}
+
+.card:hover .icon-next{
+  transform: translate(10px) ;
+  transition: transform 0.5s;
 }
 
 .link{
@@ -20,8 +41,24 @@ body{
   color: inherit;
 }
 
+.display{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 h3{
-  background-color: bisque;
   margin: 0;
   padding: 1rem;
+}
+
+.icon-next{
+  padding-top: 5px;
+  transition: transform 0.5s;
+
+/* color: black; */
+}
+
+.input{
+  background-color: #5e5e5e;
 }
