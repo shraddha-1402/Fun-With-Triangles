@@ -22,7 +22,7 @@ body{
 }
 
 section{
-  margin-top: 5rem;
+  margin-top: 4rem;
 }
 
 .card{
@@ -71,6 +71,28 @@ h3{
   padding-top: 5px;
   transition: transform 0.5s;
   margin: 0 0.5rem;
+}
+
+footer{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--light-black);
+}
+
+footer>.icon-sm{
+  text-decoration: none;
+  color: var(--light-gray);
+  font-size: 24px;
+  margin: 1rem;
+  transition: color 0.2s;
+
+}
+
+footer>.icon-sm:hover{
+  color: var(--light-beige);
+  transition: color 0.2s;
 }
 
 .input{
