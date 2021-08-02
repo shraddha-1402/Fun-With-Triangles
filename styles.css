@@ -82,12 +82,9 @@ footer{
 }
 
 footer>.icon-sm{
-  text-decoration: none;
-  color: var(--light-gray);
   font-size: 24px;
   margin: 1rem;
   transition: color 0.2s;
-
 }
 
 footer>.icon-sm:hover{
