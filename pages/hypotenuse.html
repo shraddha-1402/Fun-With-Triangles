@@ -5,25 +5,39 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <title>Hypotenuse Of Triangle</title>
 </head>
 
 <body>
-  <div><a href="../index.html" class="link">Back To Home</a></div>
-  <h1>Enter Length of sides of right angle triangle</h1>
-  <div class="triangle-adjacent-base"></div>
-  <div class="triangle-hypotenuse"></div>
+  <div id="content_body">
+    <a href="../index.html" class="link back-link"><span class="fa fa-arrow-left icon-back"></span> Back To Home</a>
+    <h1 class="heading">Hypotenuse Of Triangle</h1>
+    <p class="description">Enter the sides of the triangle, a and b and we will compute its hypotenuse
+    </p>
+    <div class="triangle-adjacent-base"></div>
+    <div class="triangle-hypotenuse"></div>
 
-  <form id="hypotenuse-form">
-    <label for="adjacent-side">a:</label>
-    <input type="number" min="1" required name="adjacent-side" id="adjacent-side">
-    <label for="base">b:</label>
-    <input type="number" min="1" required name="base" id="base">
-    <button type="submit">Calculate</button>
-  </form>
+    <form id="hypotenuse-form" class="form display-flex-coloumn">
+      <div>
+        <label class="label" for="adjacent-side">A : </label>
+        <input class="input input-with-label" type="number" min="1" required autocomplete="off" name="adjacent-side"
+          id="adjacent-side">
+      </div>
+      <div>
+        <label class="label" for="base">B : </label>
+        <input class="input input-with-label" type="number" min="1" required name="base" autocomplete="off" id="base">
+      </div>
+      <button type="submit" class="submit-button">Calculate</button>
+    </form>
 
-  <p id="output">Hypotenuse will be shown here</p>
-
+    <p id="output" class="output-para">Hypotenuse will be shown here</p>
+  </div>
+  <footer>
+    <a href="http://github.com" class="icon-sm link fa fa-github"></a>
+    <a href="http://twitter.com" class="icon-sm link fa fa-twitter"></a>
+    <a href="http://linkedin.com" class="icon-sm link fa fa-linkedin"></a>
+  </footer>
   <script src="../jsFiles/hypotenuse.js"></script>
 </body>
 

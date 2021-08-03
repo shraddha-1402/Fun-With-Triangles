@@ -173,6 +173,17 @@ footer>.icon-sm:hover{
   transition: background-color 0.2s;
 }
 
+.input-with-label{
+  width: 48vmin
+}
+
+.label{
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin: 0 0.5rem;
+  color: var(--light-beige);
+}
+
 .submit-button{
   width: 10rem;
   height: 2.25rem;
