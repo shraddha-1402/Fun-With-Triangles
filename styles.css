@@ -34,18 +34,44 @@ body{
   margin: 4rem 1rem 8rem;
 }
 
-.card{
-  margin: 1rem auto;
+ol{
+  padding: 0;
+}
+
+.list-item{
+  margin: 2rem 0;
+  padding: 1rem;
+  list-style: none;
+}
+
+.list-item>label>input{
+  margin-top: 1rem;
+}
+
+.list-item>label{
+  margin-right: 1rem;
+}
+
+.list-item>label, .list-item>label>input{
+  cursor: pointer;
+}
+
+.list-item, .card{
   border: 2px solid black;
   font-weight: bold;
-  max-width: 48rem;
-  cursor: pointer;
-  background-color: var(--light-black);
   font-size: 20px;
+  border-radius: 0.5rem;
+  background-color: var(--light-black);
   transition: 0.5s;
 }
 
-.card:hover{
+.card{
+  margin: 1rem auto;
+  max-width: 48rem;
+  cursor: pointer;
+}
+
+.card:hover, .list-item:hover{
   border-color: var(--light-beige);
   color: var(--light-beige);
 }
@@ -135,7 +161,7 @@ footer>.icon-sm:hover{
 }
 
 .form{
-  max-width: 40rem;
+  max-width: 48rem;
   margin: 1.5rem auto;
 }
 
@@ -209,7 +235,6 @@ color: var(--light-gray);
   font-weight: bold;
   color: var(--dark-beige);
 }
-
 
 .submit-button{
   width: 10rem;

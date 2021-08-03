@@ -14,10 +14,11 @@ function checkAnswers(event) {
   }
   for (let index = 0; index < answers.length; index++) {
     if (usrAnswers[index] === answers[index]) {
-      usrAnsList[index].setAttribute("style", "color: green");
+      usrAnsList[index].style.borderColor = "green";
     } else
-      usrAnsList[index].setAttribute("style", "color: red");
+      usrAnsList[index].style.borderColor = "red";
   }
+  document.querySelector("#quiz_heading").scrollIntoView(true);
   event.preventDefault();
 }
 
