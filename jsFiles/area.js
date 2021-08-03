@@ -135,9 +135,6 @@ function renderOptionTwoDOM() {
   let errorDiv = setDivAttributes(
     "div", "Enter valid side lengths such that each side length should be less than sum of other two sides", "warning_div", "error-div"
   );
-  errorDiv.append(
-    document.createElement("span").setAttribute("class", "fa fa-times-circle")
-  );
 
   form.append(
     div1,
