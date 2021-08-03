@@ -9,33 +9,34 @@ function clearSection(element) {
   }
 }
 
-function setDivAttributes(element, innerText, id) {
+function setDivAttributes(element, innerText, id, classs) {
   let ele = document.createElement(element);
-  ele.setAttribute("id", id);
-  ele.innerText = innerText;
+  // ele.setAttribute("id", id);
+  // ele.innerText = innerText;
+
+  id ? ele.setAttribute("id", id) : ele;
+  innerText ? ele.innerText = innerText : ele;
+  classs ? ele.setAttribute("class", classs) : ele;
   return ele;
 }
 
-function setHeadingAttributes(element, innerText) {
-  let ele = document.createElement(element);
-  return ele.innerText = innerText;
-}
-
-function setButtonAttributes(element, type, innerText) {
+function setButtonAttributes(element, type, innerText, classs) {
   let ele = document.createElement(element);
   ele.setAttribute("type", type);
+  ele.setAttribute("class", classs);
   ele.innerText = innerText;
   return ele;
 }
 
-function setLabelAttributes(element, fr, innerText) {
+function setLabelAttributes(element, fr, innerText, classs) {
   let ele = document.createElement(element);
   ele.setAttribute("for", fr);
+  ele.setAttribute("class", classs);
   ele.innerText = innerText;
   return ele;
 }
 
-function setInputAtrributes(element, type, name, id, min, max, step) {
+function setInputAtrributes(element, type, name, id, min, max, step, classs) {
   let ele = document.createElement(element);
   ele.setAttribute("type", type);
   ele.setAttribute("name", name);
@@ -44,6 +45,8 @@ function setInputAtrributes(element, type, name, id, min, max, step) {
   ele.setAttribute("max", max);
   ele.setAttribute("step", step);
   ele.setAttribute("required", true);
+  ele.setAttribute("class", classs);
+  ele.setAttribute("autocomplete", "off");
   return ele;
 }
 
@@ -53,7 +56,9 @@ function calculateAreaOptionOne(event) {
   let base = parseFloat(document.querySelector("#baseLength").value);
   let height = parseFloat(document.querySelector("#height").value);
   let output = document.querySelector("#output");
-  output.innerText = 0.5 * base * height;
+  output.style.visibility = "visible";
+  output.innerText = `Area = ${(0.5 * base * height).toFixed(5)}`;
+  output.scrollIntoView(true);
   event.preventDefault();
 }
 
@@ -61,18 +66,27 @@ function renderOptionOneDOM() {
   clearSection(displayArea);
   let form = document.createElement("form");
   form.setAttribute("id", "form");
+  form.setAttribute("class", "form display-flex-coloumn");
+  let div1 = setDivAttributes("div", "", "");
+  let div2 = setDivAttributes("div", "", "");
+  div1.append(
+    setLabelAttributes("label", "baseLength", "B : ", "label"),
+    setInputAtrributes("input", "number", "base", "baseLength", "1", "", "0.01", "input input-with-label"),
+  );
+  div2.append(
+    setLabelAttributes("label", "height", "C : ", "label"),
+    setInputAtrributes("input", "number", "height", "height", "1", "", "0.01", "input input-with-label"),
+  );
+
   form.append(
-    setLabelAttributes("label", "baseLength", "base:"),
-    setInputAtrributes("input", "number", "base", "baseLength", "1", "", "0.01"),
-    setLabelAttributes("label", "height", "height:"),
-    setInputAtrributes("input", "number", "height", "height", "1", "", "0.01"),
-    setButtonAttributes("button", "submit", "Calculate")
+    div1,
+    div2,
+    setButtonAttributes("button", "submit", "Calculate", "submit-button")
   );
 
   displayArea.append(
     form,
-    setHeadingAttributes("h3", "Area will be shown here: "),
-    setDivAttributes("div", "Area = (1/2)*base*height", "output")
+    setDivAttributes("div", "Area = (1/2)*base*height", "output", "output-para")
   );
   document.querySelector("#form").addEventListener("submit", calculateAreaOptionOne);
 }
@@ -85,10 +99,12 @@ function calculateAreaOptionTwo(event) {
   let output = document.querySelector("#output");
 
   if (side1 + side2 < side3 || side1 + side3 < side2 || side2 + side3 < side1)
-    document.querySelector("#warningDiv").innerText = "Enter valid side lengths such that each side length should be less than sum of other two sides";
+    document.querySelector("#warning_div").style.display = "block";
   else {
     let s = (side1 + side2 + side3) / 2;
-    output.innerText = Math.sqrt(s * (s - side1) * (s - side2) * (s - side3));
+    output.style.visibility = "visible";
+    output.innerText = `Area = ${(Math.sqrt(s * (s - side1) * (s - side2) * (s - side3))).toFixed(5)}`;
+    output.scrollIntoView(true);
   }
   event.preventDefault();
 }
@@ -97,22 +113,43 @@ function renderOptionTwoDOM() {
   clearSection(displayArea);
   let form = document.createElement("form");
   form.setAttribute("id", "form");
+  form.setAttribute("class", "form display-flex-coloumn")
+
+  let div1 = setDivAttributes("div", "", "", "");
+  let div2 = setDivAttributes("div", "", "", "");
+  let div3 = setDivAttributes("div", "", "", "");
+
+  div1.append(
+    setLabelAttributes("label", "side1", "A : ", "label"),
+    setInputAtrributes("input", "number", "side1", "side1", "1", "", "0.01", "input input-with-label"),
+  );
+  div2.append(
+    setLabelAttributes("label", "side2", "B : ", "label"),
+    setInputAtrributes("input", "number", "side2", "side2", "1", "", "0.01", "input input-with-label"),
+  );
+  div3.append(
+    setLabelAttributes("label", "side3", "C : ", "label"),
+    setInputAtrributes("input", "number", "side3", "side3", "1", "", "0.01", "input input-with-label"),
+  );
+
+  let errorDiv = setDivAttributes(
+    "div", "Enter valid side lengths such that each side length should be less than sum of other two sides", "warning_div", "error-div"
+  );
+  errorDiv.append(
+    document.createElement("span").setAttribute("class", "fa fa-times-circle")
+  );
 
   form.append(
-    setLabelAttributes("label", "side1", "a:"),
-    setInputAtrributes("input", "number", "side1", "side1", "1", "", "0.01"),
-    setLabelAttributes("label", "side2", "b:"),
-    setInputAtrributes("input", "number", "side2", "side2", "1", "", "0.01"),
-    setLabelAttributes("label", "side3", "c:"),
-    setInputAtrributes("input", "number", "side3", "side3", "1", "", "0.01"),
-    setDivAttributes("div", "", "warningDiv"),
-    setButtonAttributes("button", "submit", "Calculate")
+    div1,
+    div2,
+    div3,
+    errorDiv,
+    setButtonAttributes("button", "submit", "Calculate", "submit-button")
   );
 
   displayArea.append(
     form,
-    setHeadingAttributes("h3", "Area will be shown here: "),
-    setDivAttributes("div", "Area = √s(s-a)(s-b)(s-c)", "output")
+    setDivAttributes("div", "Area = √s(s-a)(s-b)(s-c)", "output", "output-para")
   );
   document.querySelector("#form").addEventListener("submit", calculateAreaOptionTwo);
 }
@@ -123,7 +160,9 @@ function calculateAreaOptionThree(event) {
   let side3 = parseFloat(document.querySelector("#side3").value);
   let degree = parseFloat(document.querySelector("#degree").value);
   let output = document.querySelector("#output");
-  output.innerText = 0.5 * side2 * side3 * Math.sin(degree);
+  output.style.visibility = "visible";
+  output.innerText = `Area = ${(0.5 * side2 * side3 * Math.sin(degree).toFixed(5))}`;
+  output.scrollIntoView(true);
   event.preventDefault();
 }
 
@@ -131,21 +170,35 @@ function renderOptionThreeDOM() {
   clearSection(displayArea);
   let form = document.createElement("form");
   form.setAttribute("id", "form");
+  form.setAttribute("class", "form display-flex-coloumn")
+
+  let div1 = setDivAttributes("div", "", "", "");
+  let div2 = setDivAttributes("div", "", "", "");
+  let div3 = setDivAttributes("div", "", "", "");
+
+  div1.append(
+    setLabelAttributes("label", "side2", "B : ", "label"),
+    setInputAtrributes("input", "number", "side2", "side2", "1", "", "0.01", "input input-with-label"),
+  );
+  div2.append(
+    setLabelAttributes("label", "side3", "C : ", "label"),
+    setInputAtrributes("input", "number", "side3", "side3", "1", "", "0.01", "input input-with-label"),
+  );
+  div3.append(
+    setLabelAttributes("label", "degree", "∠ : ", "label"),
+    setInputAtrributes("input", "number", "degree", "degree", "1", "180", "0.01", "input input-with-label"),
+  );
 
   form.append(
-    setLabelAttributes("label", "side2", "b:"),
-    setInputAtrributes("input", "number", "side2", "side2", "1", "", "0.01"),
-    setLabelAttributes("label", "side3", "c:"),
-    setInputAtrributes("input", "number", "side3", "side3", "1", "", "0.01"),
-    setLabelAttributes("label", "degree", "∠A(deg)"),
-    setInputAtrributes("input", "number", "degree", "degree", "1", "180", "0.01"),
-    setButtonAttributes("button", "submit", "Calculate")
+    div1,
+    div2,
+    div3,
+    setButtonAttributes("button", "submit", "Calculate", "submit-button")
   );
 
   displayArea.append(
     form,
-    setHeadingAttributes("h3", "Area will be shown here: "),
-    setDivAttributes("div", "Area= 1/2*b*c*sin(A)", "output")
+    setDivAttributes("div", "Area= 1/2*b*c*sin(A)", "output", "output-para")
   );
   document.querySelector("#form").addEventListener("submit", calculateAreaOptionThree);
 }
