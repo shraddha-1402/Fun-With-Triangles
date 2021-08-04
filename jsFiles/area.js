@@ -110,13 +110,13 @@ function renderOptionOneDOM() {
   );
 
   form.append(
-    createTriangle(true, true),
     div1,
     div2,
     setButtonAttributes("button", "submit", "Calculate", "submit-button")
   );
 
   displayArea.append(
+    createTriangle(true, true),
     form,
     setDivAttributes("Area = (1/2)*base*height", "output", "output-para")
   );
@@ -170,7 +170,6 @@ function renderOptionTwoDOM() {
   );
 
   form.append(
-    createTriangle(false, false),
     div1,
     div2,
     div3,
@@ -179,6 +178,7 @@ function renderOptionTwoDOM() {
   );
 
   displayArea.append(
+    createTriangle(false, false),
     form,
     setDivAttributes("Area = √s(s-a)(s-b)(s-c)", "output", "output-para")
   );
@@ -222,7 +222,6 @@ function renderOptionThreeDOM() {
   );
 
   form.append(
-    createRightAngleTriangle(false),
     div1,
     div2,
     div3,
@@ -230,6 +229,7 @@ function renderOptionThreeDOM() {
   );
 
   displayArea.append(
+    createRightAngleTriangle(false),
     form,
     setDivAttributes("Area= 1/2*b*c*sin(A)", "output", "output-para")
   );
