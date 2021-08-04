@@ -9,7 +9,7 @@ function calculateHypotenuse(event) {
   var baseLen = parseInt(baseLength.value);
   var hypo = Math.sqrt((Math.pow(adjLen, 2) + Math.pow(baseLen, 2)));
   output.style.visibility = "visible";
-  output.innerText = `Hypotenuse = ${hypo.toFixed(5)}`;
+  output.innerText = `Hypotenuse(C) = ${hypo.toFixed(5)}`;
   output.scrollIntoView(true);
   event.preventDefault();
 }
