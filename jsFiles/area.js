@@ -24,24 +24,24 @@ function setDivAttributes(innerText, id, classs) {
   return ele;
 }
 
-function setButtonAttributes(element, type, innerText, classs) {
-  let ele = document.createElement(element);
+function setButtonAttributes(type, innerText, classs) {
+  let ele = document.createElement("button");
   ele.setAttribute("type", type);
   ele.setAttribute("class", classs);
   ele.innerText = innerText;
   return ele;
 }
 
-function setLabelAttributes(element, fr, innerText, classs) {
-  let ele = document.createElement(element);
+function setLabelAttributes(fr, innerText, classs) {
+  let ele = document.createElement("label");
   ele.setAttribute("for", fr);
   ele.setAttribute("class", classs);
   ele.innerText = innerText;
   return ele;
 }
 
-function setInputAtrributes(element, type, name, id, min, max, step, classs) {
-  let ele = document.createElement(element);
+function setInputAtrributes(type, name, id, min, max, step, classs) {
+  let ele = document.createElement("input");
   ele.setAttribute("type", type);
   ele.setAttribute("name", name);
   ele.setAttribute("id", id);
@@ -101,18 +101,18 @@ function renderOptionOneDOM() {
   let div1 = setDivAttributes("", "");
   let div2 = setDivAttributes("", "");
   div1.append(
-    setLabelAttributes("label", "baseLength", "B : ", "label"),
-    setInputAtrributes("input", "number", "base", "baseLength", "1", "", "0.01", "input input-with-label"),
+    setLabelAttributes("baseLength", "B : ", "label"),
+    setInputAtrributes("number", "base", "baseLength", "1", "", "0.01", "input input-with-label"),
   );
   div2.append(
-    setLabelAttributes("label", "height", "C : ", "label"),
-    setInputAtrributes("input", "number", "height", "height", "1", "", "0.01", "input input-with-label"),
+    setLabelAttributes("height", "C : ", "label"),
+    setInputAtrributes("number", "height", "height", "1", "", "0.01", "input input-with-label"),
   );
 
   form.append(
     div1,
     div2,
-    setButtonAttributes("button", "submit", "Calculate", "submit-button")
+    setButtonAttributes("submit", "Calculate", "submit-button")
   );
 
   displayArea.append(
@@ -154,16 +154,16 @@ function renderOptionTwoDOM() {
   let div3 = setDivAttributes("", "", "");
 
   div1.append(
-    setLabelAttributes("label", "side1", "A : ", "label"),
-    setInputAtrributes("input", "number", "side1", "side1", "1", "", "0.01", "input input-with-label"),
+    setLabelAttributes("side1", "A : ", "label"),
+    setInputAtrributes("number", "side1", "side1", "1", "", "0.01", "input input-with-label"),
   );
   div2.append(
-    setLabelAttributes("label", "side2", "B : ", "label"),
-    setInputAtrributes("input", "number", "side2", "side2", "1", "", "0.01", "input input-with-label"),
+    setLabelAttributes("side2", "B : ", "label"),
+    setInputAtrributes("number", "side2", "side2", "1", "", "0.01", "input input-with-label"),
   );
   div3.append(
-    setLabelAttributes("label", "side3", "C : ", "label"),
-    setInputAtrributes("input", "number", "side3", "side3", "1", "", "0.01", "input input-with-label"),
+    setLabelAttributes("side3", "C : ", "label"),
+    setInputAtrributes("number", "side3", "side3", "1", "", "0.01", "input input-with-label"),
   );
 
   let errorDiv = setDivAttributes("Enter valid side lengths such that each side length should be less than sum of other two sides", "warning_div", "error-div"
@@ -174,7 +174,7 @@ function renderOptionTwoDOM() {
     div2,
     div3,
     errorDiv,
-    setButtonAttributes("button", "submit", "Calculate", "submit-button")
+    setButtonAttributes("submit", "Calculate", "submit-button")
   );
 
   displayArea.append(
@@ -209,23 +209,23 @@ function renderOptionThreeDOM() {
   let div3 = setDivAttributes("", "", "");
 
   div1.append(
-    setLabelAttributes("label", "side2", "B : ", "label"),
-    setInputAtrributes("input", "number", "side2", "side2", "1", "", "0.01", "input input-with-label"),
+    setLabelAttributes("side2", "B : ", "label"),
+    setInputAtrributes("number", "side2", "side2", "1", "", "0.01", "input input-with-label"),
   );
   div2.append(
-    setLabelAttributes("label", "side3", "C : ", "label"),
-    setInputAtrributes("input", "number", "side3", "side3", "1", "", "0.01", "input input-with-label"),
+    setLabelAttributes("side3", "C : ", "label"),
+    setInputAtrributes("number", "side3", "side3", "1", "", "0.01", "input input-with-label"),
   );
   div3.append(
-    setLabelAttributes("label", "degree", "∠ : ", "label"),
-    setInputAtrributes("input", "number", "degree", "degree", "1", "180", "0.01", "input input-with-label"),
+    setLabelAttributes("degree", "∠ : ", "label"),
+    setInputAtrributes("number", "degree", "degree", "1", "180", "0.01", "input input-with-label"),
   );
 
   form.append(
     div1,
     div2,
     div3,
-    setButtonAttributes("button", "submit", "Calculate", "submit-button")
+    setButtonAttributes("submit", "Calculate", "submit-button")
   );
 
   displayArea.append(
