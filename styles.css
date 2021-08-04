@@ -20,7 +20,7 @@ body{
   height: 90vh;
   padding: 1rem;
   padding-top: 1.5rem;
-  overflow: auto;
+  overflow-y: scroll;
   scroll-behavior: smooth;
 }
 
@@ -188,7 +188,7 @@ footer>.icon-sm:hover{
 }
 
 .input::placeholder{
-  color: var(--light-beige);
+  color: var(--dark-beige);
 }
 
 .input:hover, .input:focus{
@@ -203,6 +203,10 @@ footer>.icon-sm:hover{
 
 .input-with-label{
   width: 48vmin
+}
+
+.input, .submit-button{
+  font-family: 'Times New Roman', Times, serif;
 }
 
 .input-radio-div{
@@ -263,7 +267,7 @@ color: var(--light-gray);
   visibility: hidden;
   max-width: 40rem;
   margin: 0 auto;
-  margin-bottom: 5rem;
+  margin-bottom: 4.5rem;
   padding: 1rem;
   text-align: center;
   color: var(--light-beige);

@@ -40,11 +40,12 @@ function setLabelAttributes(fr, innerText, classs) {
   return ele;
 }
 
-function setInputAtrributes(type, name, id, min, max, step, classs) {
+function setInputAtrributes(type, placeHolder, name, id, min, max, step, classs) {
   let ele = document.createElement("input");
   ele.setAttribute("type", type);
   ele.setAttribute("name", name);
   ele.setAttribute("id", id);
+  ele.setAttribute("placeholder", placeHolder);
   ele.setAttribute("min", min);
   ele.setAttribute("max", max);
   ele.setAttribute("step", step);
@@ -102,11 +103,11 @@ function renderOptionOneDOM() {
   let div2 = setDivAttributes("", "");
   div1.append(
     setLabelAttributes("baseLength", "B : ", "label"),
-    setInputAtrributes("number", "base", "baseLength", "1", "", "0.01", "input input-with-label"),
+    setInputAtrributes("number", "length", "base", "baseLength", "1", "", "0.01", "input input-with-label"),
   );
   div2.append(
     setLabelAttributes("height", "C : ", "label"),
-    setInputAtrributes("number", "height", "height", "1", "", "0.01", "input input-with-label"),
+    setInputAtrributes("number", "length", "height", "height", "1", "", "0.01", "input input-with-label"),
   );
 
   form.append(
@@ -155,15 +156,15 @@ function renderOptionTwoDOM() {
 
   div1.append(
     setLabelAttributes("side1", "A : ", "label"),
-    setInputAtrributes("number", "side1", "side1", "1", "", "0.01", "input input-with-label"),
+    setInputAtrributes("number", "length", "side1", "side1", "1", "", "0.01", "input input-with-label"),
   );
   div2.append(
     setLabelAttributes("side2", "B : ", "label"),
-    setInputAtrributes("number", "side2", "side2", "1", "", "0.01", "input input-with-label"),
+    setInputAtrributes("number", "length", "side2", "side2", "1", "", "0.01", "input input-with-label"),
   );
   div3.append(
     setLabelAttributes("side3", "C : ", "label"),
-    setInputAtrributes("number", "side3", "side3", "1", "", "0.01", "input input-with-label"),
+    setInputAtrributes("number", "length", "side3", "side3", "1", "", "0.01", "input input-with-label"),
   );
 
   let errorDiv = setDivAttributes("Enter valid side lengths such that each side length should be less than sum of other two sides", "warning_div", "error-div"
@@ -193,7 +194,7 @@ function calculateAreaOptionThree(event) {
   let degree = parseFloat(document.querySelector("#degree").value);
   let output = document.querySelector("#output");
   output.style.visibility = "visible";
-  output.innerText = `Area = ${(0.5 * side2 * side3 * Math.sin(degree).toFixed(5))}`;
+  output.innerText = `Area = ${((side2 * side3 * Math.sin(degree * (Math.PI / 180))) / 2).toFixed(5)}`;
   output.scrollIntoView(true);
   event.preventDefault();
 }
@@ -210,15 +211,15 @@ function renderOptionThreeDOM() {
 
   div1.append(
     setLabelAttributes("side2", "B : ", "label"),
-    setInputAtrributes("number", "side2", "side2", "1", "", "0.01", "input input-with-label"),
+    setInputAtrributes("number", "length", "side2", "side2", "1", "", "0.01", "input input-with-label"),
   );
   div2.append(
     setLabelAttributes("side3", "C : ", "label"),
-    setInputAtrributes("number", "side3", "side3", "1", "", "0.01", "input input-with-label"),
+    setInputAtrributes("number", "length", "side3", "side3", "1", "", "0.01", "input input-with-label"),
   );
   div3.append(
     setLabelAttributes("degree", "∠ : ", "label"),
-    setInputAtrributes("number", "degree", "degree", "1", "180", "0.01", "input input-with-label"),
+    setInputAtrributes("number", "degree", "degree", "degree", "1", "180", "0.01", "input input-with-label"),
   );
 
   form.append(
